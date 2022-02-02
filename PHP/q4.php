@@ -3,7 +3,7 @@
 
 $submit=0;
 
-if(isset($_POST['ans'])){
+if(isset($_POST['ans3'])){
     $server="localhost";
     $username="root";
     $password="";
@@ -14,19 +14,19 @@ if(isset($_POST['ans'])){
 
     }
     
-    $ans1 = $_POST['ans'];
+    $ans1 = $_POST['ans3'];
    
     if($ans1=='1'){
-        // echo"correct<br>";
+        echo"correct<br>";
         session_start();
         $ID=$_SESSION['ID'];
         
-        $sql="UPDATE leaderboard1 SET marks= '200'  WHERE id='$ID'";
+        $sql="UPDATE leaderboard1 SET marks= '400'  WHERE id='$ID'";
         if($con->query($sql)== true)
         {
             // echo"Successfully inserted";
             $submit=1;
-            include "q2copy.php";
+            
     
         }
         else{
@@ -39,18 +39,5 @@ if(isset($_POST['ans'])){
         echo"wrong";
     }
     
-    
-   
-    // $sql="INSERT INTO `quiz`.`leaderboard1` (`name`,`phone`,`id`, `date`, `marks`) VALUES ('$name','$phone', '$id', current_timestamp(), '$marks');";
-    
-    // if($con->query($sql)== true)
-    // {
-    //     // echo"Successfully inserted";
-    //     $submit=1;
-    // }
-    // else{
-    //     // echo"error: $sql <br> $con->error";
-    // }
-    // $con->close();
 }
 ?>
