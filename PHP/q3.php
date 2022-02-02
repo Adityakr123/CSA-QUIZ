@@ -42,3 +42,11 @@ if(isset($_POST['ans2'])){
     
 }
 ?>
+<a href='output.php'><button>RESULT</button></a>
+<script type="text/javascript">
+(function(){
+   setTimeout(function(){
+     window.location="output.php";
+   },3000); /* 1000 = 1 second*/
+})();
+</script>
