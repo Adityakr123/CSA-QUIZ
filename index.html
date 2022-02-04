@@ -12,121 +12,7 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-
-    <style>
-      html,
-      body {
-        height: 100%;
-        padding-bottom: 55px;
-        background-image:url("bg.jpg")
-        
-      }
-
-      body {
-        display: flex;
-        align-items: center;
-        padding-top: 40px;
-        padding-bottom: 40px;
-      }
-
-      .form-signin {
-        width: 100%;
-        max-width: 330px;
-        padding: 15px;
-        margin: auto;
-      }
-      
-
-      .form-signin .checkbox {
-        font-weight: 700;
-      }
-
-      .form-signin .form-floating:focus-within {
-        z-index: 2;
-        
-      }
-
-      .form-signin input[type="email"] {
-        margin-bottom: -1px;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-
-      .form-signin input[type="password"] {
-        margin-bottom: 10px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-      }
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      #myVideo {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        min-width: 100%;
-        min-height: 100%;
-      }
-
-      .content {
-        background: rgba(5, 5, 5, 0.5);
-        width: 100%;
-        background-image:url("login.jpg");
-        border-radius: 4%;
-      }
-
-      .wh {
-        color: rgb(245, 238, 238);
-      }
-
-      #myBtn {
-        width: 200px;
-        font-size: 18px;
-        padding: 5px;
-        border: none;
-        background: rgb(255, 0, 0);
-        color: #fff;
-        cursor: pointer;
-      }
-
-      #myBtn:hover {
-        background: rgb(170, 31, 31);
-        color: rgb(251, 251, 251);
-      }
-
-      body {
-        background-color: #ce3635;
-        text-align: center;
-        color: rgb(0, 0, 0);
-        padding-top: 10em;
-        
-      }
-
-      .hh {
-        color: #fff;
-        font-size: 34px;
-      }
-
-      
-      
-     
-
-    </style>
+    <link rel="stylesheet" href="style.css">
     <script>
       var TxtType = function (el, toRotate, period) {
         this.toRotate = toRotate;
@@ -199,7 +85,7 @@
           href=""
           class="typewrite hh"
           data-period="2000"
-          data-type='[ "CSA CFT PORTAL"]'
+          data-type='[ "CSA CTF PORTAL"]'
         >
           <span class="wrap"></span>
         </a>
@@ -208,7 +94,7 @@
         
         <img
           class="mb-4"
-          src="logo.jpg"
+          src="images/logo.jpg"
           alt=""
           width="72px"
           height="70px"
@@ -232,13 +118,23 @@
             name="password"
             placeholder="Password"
           />
-          <label for="floatingPassword">Phone Number</label>
+          <label for="floatingPassword">Password</label>
         </div>
-        <button class="w-100 btn btn-lg btn-success" id="myBtn" type="submit">
-          Sign in
-        </button>
-        <p class="mt-5 mb-3 text-muted bold"><b> © 2022 All rights reserved</b></p>
-      </form>
+        <button class="glow-on-hover" type="button">Sign In</button>        
+      </form> 
+      <div class="footer">
+        <div class="footer-bottom">
+          <strong style="color: grey" >Copyright © 2020 All rights reserved | Designed and
+            Developed by UPES CSA Technical Team</strong>
+        </div>
+      </div>
+      
+           
     </main>
+    
+    </div>
+      
   </body>
+  
 </html>
+    
