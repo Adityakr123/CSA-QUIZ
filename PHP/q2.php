@@ -7,7 +7,7 @@ if(isset($_POST['ans'])){
     $server="localhost";
     $username="root";
     $password="";
-    $dbname = "quiz";
+    $dbname = "CSAQUIZ";
     $con=mysqli_connect($server,$username,$password,$dbname);
     if(!$con){
         die("connection to this databassed faliled due to".mysqli_connect_error());
@@ -19,8 +19,8 @@ if(isset($_POST['ans'])){
     if($ans1=='1'){
         // echo"correct<br>";
         session_start();
-        $ID=$_SESSION['ID'];
-        
+        $ID=$_SESSION["id"];
+        echo"$ID";
         $sql="UPDATE leaderboard1 SET marks= '200'  WHERE id='$ID'";
         if($con->query($sql)== true)
         {
@@ -55,10 +55,10 @@ if(isset($_POST['ans'])){
 }
 ?>
 <a href='output.php'><button>RESULT</button></a>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 (function(){
    setTimeout(function(){
      window.location="output.php";
    },3000); /* 1000 = 1 second*/
 })();
-</script>
+</script> -->

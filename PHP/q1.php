@@ -1,34 +1,36 @@
 <?php
-$submit=0;
-if(isset($_POST['name'])){
-    $server="localhost";
-    $username="root";
-    $password="";
-    $con=mysqli_connect($server,$username,$password);
-    if(!$con){
-        die("connection to this databassed faliled due to".mysqli_connect_error());
+// $submit=0;
+// if(isset($_POST['name'])){
+//     $server="localhost";
+//     $username="root";
+//     $password="";
+//     $con=mysqli_connect($server,$username,$password);
+//     if(!$con){
+//         die("connection to this databassed faliled due to".mysqli_connect_error());
 
-    }
-    $name = $_POST['name'];
+//     }
+//     $name = $_POST['name'];
 
-    $phone = $_POST['phone'];
-    $id=$name[0].$name[1].$phone;
-    $marks=0;
+//     $phone = $_POST['phone'];
+//     $id=$name[0].$name[1].$phone;
+//     $marks=0;
    
-    $sql="INSERT INTO `quiz`.`leaderboard1` (`name`,`phone`,`id`, `date`, `marks`) VALUES ('$name','$phone', '$id', current_timestamp(), '$marks');";
-    session_start();
-    $_SESSION['ID']=$id;
-    if($con->query($sql)== true)
-    {
-        // echo"Successfully inserted";
-        $submit=1;
+//     $sql="INSERT INTO `quiz`.`leaderboard1` (`name`,`phone`,`id`, `date`, `marks`) VALUES ('$name','$phone', '$id', current_timestamp(), '$marks');";
+//     session_start();
+//     $=$_SESSION['username'];
+//     // session_start();
+//     // $_SESSION['ID']=$id;
+//     if($con->query($sql)== true)
+//     {
+//         // echo"Successfully inserted";
+//         $submit=1;
 
-    }
-    else{
-        // echo"error: $sql <br> $con->error";
-    }
-    $con->close();
-}
+//     }
+//     else{
+//         // echo"error: $sql <br> $con->error";
+//     }
+//     $con->close();
+// }
 ?>
 <!doctype html>
 <html lang="en">
@@ -61,10 +63,8 @@ if(isset($_POST['name'])){
 <div>
 <h1 style= "margin-top:3%; margin-left:1%">Answer</h1>
 <form action="q2.php" method="post">
-<div class="form-floating mx-3">
-  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-  <label for="floatingTextarea"></label>
-  <button type="submit" class="btn btn-success mt-2">Submit</button>
+            <input type="text" name="ans" id="ans2" placeholder="Enter 1">
+            <button class="btn" >Submit</button>
 </form>
 <a href='output.php'><button type="button" class="btn btn-warning ml-2 mt-2">Exit and check result</button></a>
 

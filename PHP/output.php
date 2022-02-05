@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "quiz";
+$dbname = "CSAQUIZ";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -11,7 +11,8 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 session_start();
-$ID=$_SESSION['ID'];
+$ID=$_SESSION['id'];
+echo"$ID";
 // echo$ID;
 $sql = "SELECT name,id,marks FROM leaderboard1 where id='$ID'";
 $result = $conn->query($sql);
