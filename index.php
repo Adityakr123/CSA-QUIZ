@@ -60,7 +60,7 @@ if(isset($_POST["submit"])){
           {    
               
             // Insert image content into database 
-            $insert = $db->query("INSERT into REGISTRATIONS(name,Username,Email,Phone,SAPID,password,Cpassword,Tid,image) VALUES ('$name','$Username','$Email','$Phone','$SAPID','$Tid','0','0','$imgContent')"); 
+            $insert = $db->query("INSERT into REGISTRATIONS(name,Username,Email,Phone,SAPID,Tid,password,Cpassword,image) VALUES ('$name','$Username','$Email','$Phone','$SAPID','$Tid','0','0','$imgContent')"); 
             $insert = $db->query("INSERT into login(Username,password) VALUES ('$Username','$safePassword')"); 
              if($insert){ 
                 $FIND=1;
@@ -110,7 +110,7 @@ echo $statusMsg;
       
  <div class="container" style="margin-top: 10%;">
   <p style="text-align: center; padding-top:20px;" class="h3">Registration Form </p><br>
- <form  action="register.php" method="post" enctype="multipart/form-data">
+ <form  action="index.php" method="post" enctype="multipart/form-data">
   <div class="user-details">
     <div class="container-fluid">
       <div class="row">
@@ -180,7 +180,7 @@ echo $statusMsg;
   </div>
   <div class="button">
     <input type="submit" name="submit"value="Upload">
-    <a href="index.html"><h3>LOGIN</h3></a>
+    <a href="login.html"><h3>LOGIN</h3></a>
     <?php
     if($FIND==1){
       
