@@ -62,7 +62,7 @@ if(isset($_POST["submit"])){
             $_SESSION["id"] = $Username;
             // Insert image content into database 
             $insert = $db->query("INSERT into REGISTRATIONS(name,Username,Email,Phone,SAPID,Tid,password,Cpassword,image) VALUES ('$name','$Username','$Email','$Phone','$SAPID','$Tid','0','0','$imgContent')"); 
-            $insert = $db->query("INSERT into leaderboard1(name,Phone,id,date,marks) VALUES ('$name','$Phone','$Username',NOW(),'0')"); 
+            $insert = $db->query("INSERT into leaderboard1(name,Phone,id,date,marks,idcopy) VALUES ('$name','$Phone','$Username',NOW(),'0','$Username')"); 
 
             $insert = $db->query("INSERT into login(Username,password) VALUES ('$Username','$safePassword')"); 
              if($insert){ 

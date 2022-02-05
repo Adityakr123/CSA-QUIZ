@@ -15,7 +15,10 @@ $ID=$_SESSION['id'];
 echo"$ID";
 // echo$ID;
 $sql = "SELECT name,id,marks FROM leaderboard1 where id='$ID'";
+$sql1="UPDATE leaderboard1 SET id= '0'  WHERE idcopy='$ID'";
+
 $result = $conn->query($sql);
+$conn->query($sql1);
 if (!empty($result) && $result->num_rows > 0) {
   while($row = mysqli_fetch_assoc($result)) {
 
