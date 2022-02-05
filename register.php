@@ -97,12 +97,18 @@ if(isset($_POST['name'])){
     </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+      <div class="input-box">
+        <span class="details">Confirm Password</span>
+          <input type="text" name ="Confirm-Password" placeholder="Confirm your password" required>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+      <div class="input-box">
+        <span class="details">Transaction Id </span>
+          <input type="text" name ="Tid" placeholder="Transaction Id" required>
+      </div>
+    </div>
 
-    <div class="input-box">
-      <span class="details">Confirm Password</span>
-      <input type="text" name ="Confirm-Password" placeholder="Confirm your password" required>
-    </div>
-    </div>
     </div>
     </div>
     <h4>Screenshot of Transaction:</h4>
