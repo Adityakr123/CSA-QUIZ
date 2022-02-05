@@ -83,11 +83,11 @@ if(isset($_POST['name'])){
 </body>
 </html>
     <script type="text/javascript">
-(function(){
-   setTimeout(function(){
-     window.location="output.php";
-   },3000); /* 1000 = 1 second*/
-})();
+// (function(){
+//    setTimeout(function(){
+//      window.location="output.php";
+//    },3000); /* 1000 = 1 second*/
+// })();
 </script>
 </body>
 </html>

@@ -1,33 +1,87 @@
-<?php
-$submit=0;
-if(isset($_POST['name'])){
-    $server="localhost";
-    $username="root";
-    $password="";
-    $con=mysqli_connect($server,$username,$password);
-    if(!$con){
-        die("connection to this databassed faliled due to".mysqli_connect_error());
 
-    }
-    $name = $_POST['name'];
-    
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $desc = $_POST['desc'];
-    $sql="INSERT INTO `Trip`.`trip` (`name`, `age`, `email`, `phone`, `other`, `date`) VALUES ('$name', '$age', '$email', '$phone', '$desc', current_timestamp());";
-    
-    if($con->query($sql)== true)
-    {
-        // echo"Successfully inserted";
-        $submit=1;
-    }
-    else{
-        // echo"error: $sql <br> $con->error";
-    }
-    $con->close();
+<?php 
+
+
+// Database configuration  
+$dbHost     = "localhost";  
+$dbUsername = "root";  
+$dbPassword = "";  
+$dbName     = "CSAQUIZ";  
+  
+// Create database connection  
+$db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);  
+  
+// Check connection  
+if ($db->connect_error) {  
+    die("Connection failed: " . $db->connect_error);  
 }
+
+ 
+// If file upload form is submitted 
+$status = $statusMsg = ''; 
+$FIND=0;
+$checkcopy=0;
+$CPASSCOPY;
+$PASSCOPY;
+if(isset($_POST["submit"])){ 
+    $status = 'error'; 
+    
+
+    if(!empty($_FILES["image"]["name"])) 
+    { 
+        // Get file info 
+
+        $fileName = basename($_FILES["image"]["name"]); 
+        $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
+         
+        // Allow certain file formats 
+        $allowTypes = array('jpg','png','jpeg','gif'); 
+        if(in_array($fileType, $allowTypes)){ 
+            $image = $_FILES['image']['tmp_name']; 
+            $name = $_POST['name'];
+            $Username = $_POST['Username'];
+            $Email = $_POST['Email'];
+            $Phone = $_POST['Phone'];
+            $SAPID = $_POST['SAPID'];
+            $Password = $_POST['Password'];
+            $safePassword=password_hash($Password, PASSWORD_DEFAULT);
+            // $passback = password_verify($Password, $safePassword); used to check the whether 
+            
+            $CPASSCOPY=$Password;
+            $CPassword = $_POST['CPassword'];
+            $PASSCOPY=$CPassword;
+            $Tid = $_POST['Tid'];
+            $imgContent = addslashes(file_get_contents($image)); 
+            if($CPASSCOPY!==$PASSCOPY){
+            
+              $checkcopy=1;
+            }
+            else
+          {    
+              
+            // Insert image content into database 
+            $insert = $db->query("INSERT into REGISTRATIONS(name,Username,Email,Phone,SAPID,password,Cpassword,Tid,image) VALUES ('$name','$Username','$Email','$Phone','$SAPID','$Tid','0','0','$imgContent')"); 
+            $insert = $db->query("INSERT into login(Username,password) VALUES ('$Username','$safePassword')"); 
+             if($insert){ 
+                $FIND=1;
+            }
+            else{ 
+            }
+          }  
+        }else{ 
+            
+        } 
+    }else{ 
+       
+    } 
+} 
+ 
+// Display status message 
+echo $statusMsg; 
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +110,7 @@ if(isset($_POST['name'])){
       
  <div class="container" style="margin-top: 10%;">
   <p style="text-align: center; padding-top:20px;" class="h3">Registration Form </p><br>
- <form  action="register.php" method="post">
+ <form  action="register.php" method="post" enctype="multipart/form-data">
   <div class="user-details">
     <div class="container-fluid">
       <div class="row">
@@ -99,9 +153,17 @@ if(isset($_POST['name'])){
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
       <div class="input-box">
         <span class="details">Confirm Password</span>
-          <input type="text" name ="Confirm-Password" placeholder="Confirm your password" required>
+          <input type="password" name ="CPassword" placeholder="Confirm your password" required>
+          <?php
+       if($checkcopy==1){
+        echo"<h4 >Password and confirmpassword are same</h4>";
+      
+    }
+    ?>
       </div>
     </div>
+
+   
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
       <div class="input-box">
         <span class="details">Transaction Id </span>
@@ -113,12 +175,18 @@ if(isset($_POST['name'])){
     </div>
     <h4>Screenshot of Transaction:</h4>
     <div class="input-group">
-      <input type="file" name ="ss-transaction"  class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" required>
+      <input type="file" name ="image"  class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload"   required>
     </div>
   </div>
   <div class="button">
-    <input type="submit" value="Register">
+    <input type="submit" name="submit"value="Upload">
     <a href="index.html"><h3>LOGIN</h3></a>
+    <?php
+    if($FIND==1){
+      
+      echo"<h3>Successfully Registered</h3>";
+    }
+    ?>
   </div>
 </form>
 

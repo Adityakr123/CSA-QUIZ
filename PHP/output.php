@@ -15,18 +15,7 @@ $ID=$_SESSION['ID'];
 // echo$ID;
 $sql = "SELECT name,id,marks FROM leaderboard1 where id='$ID'";
 $result = $conn->query($sql);
-// $sql1 = "SELECT COUNT(*) FROM users";
-// $stmt = $conn->query($sql1);
-// $count = $stmt->fetchColumn();
-
-// $rowcount=mysqli_num_rows($result);
-//     echo "The total number of rows are: ".$rowcount;
-
 if (!empty($result) && $result->num_rows > 0) {
-
-//   $idarray= array();
-//   $idarra= array();
-//   $idarr= array();
   while($row = mysqli_fetch_assoc($result)) {
 
         echo"<div >"."id: " . $row["id"]. " - Name: " . $row["name"]. " " ." - Marks " . $row["marks"]."<div>"."<br>";
