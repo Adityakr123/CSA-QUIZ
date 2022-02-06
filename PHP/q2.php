@@ -54,7 +54,7 @@ if(isset($_POST['ans'])){
     // $con->close();
 }
 ?>
-<a href='output.php'><button>RESULT</button></a>
+
 <!-- <script type="text/javascript">
 (function(){
    setTimeout(function(){
