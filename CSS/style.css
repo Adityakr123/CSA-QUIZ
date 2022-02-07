@@ -20,11 +20,6 @@ body {
   margin: auto;
 }
 
-
-.form-signin .checkbox {
-  font-weight: 700;
-}
-
 .form-signin .form-floating:focus-within {
   z-index: 2;
   
@@ -72,33 +67,11 @@ body {
   width: 100%;
   background-image:url("login.jpg");
   border-radius: 4%;
+  padding-top: 3%;
 }
 
 .wh {
   color: rgb(245, 238, 238);
-}
-
-#myBtn {
-  width: 200px;
-  font-size: 18px;
-  padding: 5px;
-  border: none;
-  background: rgb(255, 0, 0);
-  color: #fff;
-  cursor: pointer;
-}
-
-#myBtn:hover {
-  background: rgb(170, 31, 31);
-  color: rgb(251, 251, 251);
-}
-
-body {
-  background-color: #ce3635;
-  text-align: center;
-  color: rgb(0, 0, 0);
-  padding-top: 10em;
-  
 }
 
 .hh {
@@ -117,19 +90,22 @@ flex-direction: row;
 justify-content: center;
 align-items: center;
 
+
 }
 
 .glow-on-hover {
 width: 220px;
-height: 50px;
-border: none;
-outline: none;
+height: 60px;
+border-radius: 10px;
+border-color: #000;
+border-width: 6px;
+outline:#000;
 color: #000;
 background: #111;
-cursor: pointer;
+cursor: pointer;;
 position: relative;
 z-index: 0;
-border-radius: 10px;
+padding-top: 2%;
 }
 
 .glow-on-hover:before {
@@ -178,3 +154,4 @@ border-radius: 10px;
 50% { background-position: 400% 0; }
 100% { background-position: 0 0; }
 }
+

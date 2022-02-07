@@ -58,7 +58,7 @@
             
 			</div>
       
-         <a style="padding-left:6%" href='output.php'><button type="button" class="btn btn-warning ml-2 mt-2">Exit and check result</button></a>
+         <a style="padding-left:9%" href='output.php'><button type="button" class="btn btn-warning ml-2 mt-2">Exit and check result</button></a>
 		</div>		
     <script type="text/javascript">
 // (function(){
