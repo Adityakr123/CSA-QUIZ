@@ -83,7 +83,7 @@
 					<h4 style= "margin-top:2%; margin-left:4%; color:black; color:green;font-size:2rem"><u>Answer</u></h4>
           <div class="form-floating mx-3">
          <!-- <textarea rows="4" cols="60" style="color:#111" input type="text" id="floatingTextarea"></textarea> -->
-         <input type="text" name="ans" id="ans2" textarea rows="4" cols="60" style="color:#111" d="floatingTextarea" placeholder="Enter 1">
+         <input type="text" name="ans" id="ans2" textarea rows="4" cols="60" style="color:#111" d="floatingTextarea" placeholder="Answer">
           <label for="floatingTextarea"></label>
 					<label for="floatingTextarea"></label>
           <button type="submit" class="btn btn-success mt mt-2">Submit</button>
@@ -91,7 +91,7 @@
             
 			</div>
       
-         <a style="padding-left:6%" href='output.php'><button type="button" class="btn btn-warning ml-2 mt-2">Exit and check result</button></a>
+         <a style="padding-left:9%" href='output.php'><button type="button" class="btn btn-warning ml-2 mt-2">Exit and check result</button></a>
 		</div>		
     <script type="text/javascript">
 // (function(){
