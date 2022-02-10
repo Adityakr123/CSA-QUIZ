@@ -18,7 +18,7 @@ body{
  
   width: 100%;
 
-  background-color: #9cd4fa;
+  background-color:transparent;
   padding: 47px 30px;
   border-radius: 2px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.15);
@@ -103,11 +103,12 @@ form .input-box span.details{
  }
  form .button{
    height: 45px;
-   margin: 35px 0
+   margin: 35px 0;
+   width: 20%;
  }
  form .button input{
    height: 100%;
-   width: 100%;
+   width: 20%;
    border-radius: 5px;
    border: none;
    color: #fff;

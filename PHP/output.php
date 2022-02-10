@@ -23,6 +23,7 @@ if (!empty($result) && $result->num_rows > 0) {
   while($row = mysqli_fetch_assoc($result)) {
 
         echo"<div >"."id: " . $row["id"]. " - Name: " . $row["name"]. " " ." - Marks " . $row["marks"]."<div>"."<br>";
+       
         // array_push($idarray,$row['emp_salary']);
         // array_push($idarra,$row['emp_id']);
         // array_push($idarr,$row['emp_name']);

@@ -24,7 +24,7 @@ if(isset($_POST["submit"])){
      $result = mysqli_query($conn, $query);  
      while($row = mysqli_fetch_array($result))  
      {  
-          echo "  Name   " . $row["name"]."  UserName   " . $row["Username"]."  Email:   " . $row["Email"]. "  Phone Number:  " . $row["Phone"]."  SAPID:  " . $row["SAPID"]."   Transaction Id  ".$row["Tid"];
+          echo "<tr> <td>  Name   " . $row["name"]."  UserName   " . $row["Username"]."  Email:   " . $row["Email"]. "  Phone Number:  " . $row["Phone"]."  SAPID:  " . $row["SAPID"]."   Transaction Id  ".$row["Tid"]." </td></tr>";
           
           //  Email = $row['Email'] Phone Number = $row['Phone'] SAPID = $row['SAPID'] TRANSACTION_ID = $row['Tid']";
           echo '  
@@ -35,7 +35,10 @@ if(isset($_POST["submit"])){
                </tr>  
                <br>
                <br>
-          ';  
+              
+          ';
+         
+
      }  
     }
     else{
@@ -46,7 +49,3 @@ if(isset($_POST["submit"])){
 }
 ?>
 
-
-<?php  
-               
-                ?> 
