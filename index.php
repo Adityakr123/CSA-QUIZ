@@ -27,17 +27,17 @@ if(isset($_POST["submit"])){
     $status = 'error'; 
     
 
-    // if(!empty($_FILES["image"]["name"])) 
-    // { 
+    if(!empty($_FILES["image"]["name"])) 
+    { 
         // Get file info 
 
-        // $fileName = basename($_FILES["image"]["name"]); 
-        // $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
+        $fileName = basename($_FILES["image"]["name"]); 
+        $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
          
         // Allow certain file formats 
-        // $allowTypes = array('jpg','png','jpeg','gif'); 
-        // if(in_array($fileType, $allowTypes)){ 
-            // $image = $_FILES['image']['tmp_name']; 
+        $allowTypes = array('jpg','png','jpeg','gif'); 
+        if(in_array($fileType, $allowTypes)){ 
+            $image = $_FILES['image']['tmp_name']; 
             $name = $_POST['name'];
             $Username = $_POST['Username'];
             $Email = $_POST['Email'];
@@ -50,8 +50,8 @@ if(isset($_POST["submit"])){
             $CPASSCOPY=$Password;
             $CPassword = $_POST['CPassword'];
             $PASSCOPY=$CPassword;
-            // // $Tid = $_POST['Tid'];
-            // $imgContent = addslashes(file_get_contents($image)); 
+            $Tid = $_POST['Tid'];
+            $imgContent = addslashes(file_get_contents($image)); 
             if($CPASSCOPY!==$PASSCOPY){
             
               $checkcopy=1;
@@ -61,7 +61,7 @@ if(isset($_POST["submit"])){
             session_start();
             $_SESSION["id"] = $Username;
             // Insert image content into database 
-            $insert = $db->query("INSERT into REGISTRATIONS(name,Username,Email,Phone,SAPID,password,Cpassword) VALUES ('$name','$Username','$Email','$Phone','$SAPID','0','0')"); 
+            $insert = $db->query("INSERT into REGISTRATIONS(name,Username,Email,Phone,SAPID,Tid,password,Cpassword,image) VALUES ('$name','$Username','$Email','$Phone','$SAPID','$Tid','0','0','$imgContent')"); 
             $insert = $db->query("INSERT into leaderboard1(name,Phone,id,date,marks,idcopy) VALUES ('$name','$Phone','$Username',NOW(),'0','$Username')"); 
 
             $insert = $db->query("INSERT into login(Username,password) VALUES ('$Username','$safePassword')"); 
@@ -71,13 +71,12 @@ if(isset($_POST["submit"])){
             else{ 
             }
           }  
-        // }else{ 
+        }else{ 
             
-        // } 
-    // }
-    // else{ 
+        } 
+    }else{ 
        
-    // } 
+    } 
 } 
  
 // Display status message 
@@ -97,116 +96,124 @@ echo $statusMsg;
     <link rel="stylesheet" href="CSS/register1style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <title>Registration</title>
-
 </head>
+<body>
+
 
 <!--     <div class="banner">
         <div class="sliderbackground">
             <img src="images/img1.jpg" id="bgimg" class="smallheight">
         </div>
     </div> -->
-    <div class="smallheight">
+    <div class=" smallheight">
         <!-- <div class="navbar" ><span style="position:relative;"><img src="logonew.png" class="logo"></span><span class="h1" style="align-self:center; width:65%;">Registration Portal</span></div> -->
         
         <div class="container-fluid">
-            <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-      
- <div class="container " style="margin-top:10%">
-  <p style="text-align: center; padding-top:20px;" class="h3">Registration Form </p><br>
- <form  action="index.php" method="post" enctype="multipart/form-data">
-  <div class="user-details">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-    <div class="input-box">
-      <span class="details">Full Name</span>
-      <input type="text" name ="name"  placeholder="Enter your name" required >
-    </div>
+        <div class="topnav">
+        <a href="#">
+         <img alt="logo" src="images/logoo.jpg"
+         width="170" height="90">
+      </a>
+<a href="#">
+         <img alt="logo" src="images/hackershala logo.jpg"
+         width="170" height="90">
+      </a>
+</div>
+
+
+            <div class="row">              
+              <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 ">
+    <div class="container" style="margin-top: 5%; margin-left:25%;background-image: url(images/back.jpg);;opacity:65%">
+      <p style="text-align: center; padding-top:20px; color:white" class="h3"><u>Registration Form</u></p><br>
+    <form  action="index.php" method="post" enctype="multipart/form-data">
+      <div class="user-details">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+        <div style="color:white"class="input-box">
+          <span class="details">Full Name</span>
+          <input style="color:red;font-size:20px;" type="text" name ="name"  placeholder="Enter your name" required >
+        </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+        <div style="color:white" class="input-box">
+          <span class="details">Email</span>
+          <input style="color:red;font-size:20px;" type="email" name ="Email" placeholder="Enter your email" required>
+        </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-    <div class="input-box">
-      <span class="details">Username</span>
-      <input type="text" name ="Username" placeholder="Enter your username" required>
-    </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-    <div class="input-box">
-      <span class="details">Email</span>
-      <input type="email" name ="Email"  placeholder="Enter your email" required>
-    </div>
-  </div>
-  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-    <div class="input-box">
-      <span class="details">Phone Number</span>
-      <input type="phone" name ="Phone" placeholder="Confirm your Phone Number" required>
-    </div>
-  </div>
-  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-    <div class="input-box">
-      <span class="details">SAP ID</span>
-      <input type="text" name ="SAPID" placeholder="Enter your SAP ID" required>
-    </div>
-  </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-    <div class="input-box">
-      <span class="details">Password</span>
-      <input type="password" name ="Password" placeholder="Enter your password" required>
-    </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 " >
-      <div class="input-box" >
-        <span class="details">Confirm Password</span>
-          <input type="password" name ="CPassword" placeholder="Confirm your password" required >
-          <?php
-       if($checkcopy==1){
-        echo"<h4 >Password and confirmpassword are same</h4>";
-      
-    }
-    ?>
+        <div style="color:white" class="input-box">
+          <span class="details">Whatsapp Number</span>
+          <input style="color:red;font-size:20px;" type="phone" name ="Phone"  placeholder="Enter your email" required>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+        <div style="color:white" class="input-box">
+          <span class="details">College name</span>
+          <input style="color:red;font-size:20px;" type="text" name ="College Name" placeholder="Enter your College Name" required>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+        <div style="color:white" class="input-box">
+          <span class="details">Academic Year</span>
+          <input style="color:red;font-size:20px;" type="text" name ="Year" placeholder="Enter your Year" required>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+        <div  style="color:white" class="input-box">
+          <span class="details">City</span>
+          <input style="color:red;font-size:20px;" type="text" name ="City" placeholder="Enter your City" required>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+        <div style="color:white" class="input-box">
+          <span class="details">Course Name</span>
+          <input style="color:red;font-size:20px;" type="text" name ="Course Name" placeholder="Enter your Course Name" required>
+        </div>
+    </div> 
+
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+        <div style="color:white" class="input-box">
+          <span class="details">Password</span>
+          <input style="color:red;font-size:20px;" type="password" name ="Password" placeholder="Enter your password" required>
+        </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+          <div style="color:white" class="input-box">
+            <span style="font: style 20px;" class="details">Confirm Password</span>
+              <input style="color:red;font-size:20px;" type="password" name ="Confirm Password" placeholder="Confirm your password" required>
+              <?php
+          if($checkcopy==1){
+          echo"<h4 >Password and confirmpassword are same</h4>";
+          
+          }    
+        ?>
       </div>
     </div>
+    
+    
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+    <div style="color:white" class="input-box">
+    <span style="font: style 20px;" class="details">Date Of Birth</span>
+    <input type="date" id="birthday" name="birthday">
+    </div>
+</div> 
 
-   
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center; padding-bottom:30px;">
-    <div class="button">
-    <input type="submit" name="submit"value="REGISTER NOW" style="width:160px;">
-    <!-- <a href="login.html"><h3>LOGIN</h3></a> -->
+
+    </div>
+    </div>
+  <div class="button">
+    <input  type="submit" name="submit"value="Register">
+    <a style="color:yellow" href="login.html"><h3>LOGIN</h3></a>
     <?php
     if($FIND==1){
       
-      echo"<h3><br>Successfully Registered</h3>";
+      echo"<h3>Successfully Registered</h3>";
     }
     ?>
   </div>
-      <!-- <div class="input-box">
-        <span class="details">Transaction Id </span>
-          <input type="text" name ="Tid" placeholder="Transaction Id" required>
-      </div>
-    </div>
-
-    </div>
-    </div>
-    <h4>Screenshot of Transaction:</h4>
-    <div class="input-group">
-      <input type="file" name ="image"  class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload"   required>
-    </div> -->
-  </div>
-
 </form>
-
-
-                </div></div>
-              <!-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 " style="margin-top:2.2%;">
-
-                  <div style="background-color:#9cd4fa;" style="padding-bottom:20px;">
-              
-                  
-                    <h5 class="h5" style="padding-top:40px;color:black;">PAYMENT METHODS</h5><p style="color:black; margin-top:50px;  margin-left:50px;">PAYTM<br></p><div  style=" margin-left:50px; margin-top:20px"><img src="images/paytm.jpeg" width="90%" height="200px" style="padding-right: 40px; margin-top:10px"></div><p style="color:black; margin-top:50px;  margin-left:50px; ">GPAY<br></p><div  style=" margin-left:50px;"><img src="images/gpay.jpeg" width="90%" height="250px" style="padding-right: 40px; padding-bottom:20px; margin-top:20px"></div></div></div>
-                    
-                  </div> -->
-        </div>
-    </div>
-
 </body>
 </html>

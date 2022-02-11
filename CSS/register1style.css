@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins',sans-serif;
+  
 }
 body{
   
@@ -13,12 +14,12 @@ body{
   align-items: center;
   padding: 10px;
   background-image: url(../images/back.jpg);
+  
 }
 .container{
  
   width: 100%;
-
-  background-color:transparent;
+  background-color: #90b1ff;
   padding: 47px 30px;
   border-radius: 2px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.15);
@@ -37,6 +38,7 @@ body{
   width: 30px;
   border-radius: 5px;
   background-image: url(images/back.jpg);
+  
 }
 .content form .user-details{
   display:flex;
@@ -58,11 +60,12 @@ form .input-box span.details{
   width: 100%;
   outline: none;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 10px;
   padding-left: 15px;
   border: 1px solid #ccc;
   border-bottom-width: 2px;
   transition: all 0.3s ease;
+  font-style: bold;
 }
 .user-details .input-box input:focus,
 .user-details .input-box input:valid{
@@ -103,12 +106,11 @@ form .input-box span.details{
  }
  form .button{
    height: 45px;
-   margin: 35px 0;
-   width: 20%;
+   margin: 35px 0
  }
  form .button input{
    height: 100%;
-   width: 20%;
+   width: 100%;
    border-radius: 5px;
    border: none;
    color: #fff;
