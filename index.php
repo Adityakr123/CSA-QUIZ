@@ -105,12 +105,12 @@ echo $statusMsg;
             <img src="images/img1.jpg" id="bgimg" class="smallheight">
         </div>
     </div> -->
-    <div class=" smallheight">
+   
         <!-- <div class="navbar" ><span style="position:relative;"><img src="logonew.png" class="logo"></span><span class="h1" style="align-self:center; width:65%;">Registration Portal</span></div> -->
         
-        <div class="container-fluid">
+        <div class=" smallheight">
         <div class="topnav">
-        <a href="#">
+        <ahref="#">
          <img alt="logo" src="images/logoo.jpg"
          width="170" height="90">
       </a>
@@ -118,12 +118,15 @@ echo $statusMsg;
          <img alt="logo" src="images/hackershala logo.jpg"
          width="170" height="90">
       </a>
+<a style="padding-left:58%;" href="#">
+         <img alt="logo" src="images/upeslogo.jpg"
+         width="15rem" height="85">
+      </a>
 </div>
-
-
+<div class="container-fluid">
             <div class="row">              
               <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 ">
-    <div class="container" style="margin-top: 5%; margin-left:25%;background-image: url(images/back.jpg);;opacity:65%">
+    <div class="container" style="margin-top: 5%; margin-left:25%;background-image: url(images/back.jpg);opacity">
       <p style="text-align: center; padding-top:20px; color:white" class="h3"><u>Registration Form</u></p><br>
     <form  action="index.php" method="post" enctype="multipart/form-data">
       <div class="user-details">
@@ -132,49 +135,49 @@ echo $statusMsg;
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
         <div style="color:white"class="input-box">
           <span class="details">Full Name</span>
-          <input style="color:red;font-size:20px;" type="text" name ="name"  placeholder="Enter your name" required >
+          <input style="font-size:20px;" type="text" name ="name"  placeholder="Enter your name" required >
         </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
         <div style="color:white" class="input-box">
           <span class="details">Email</span>
-          <input style="color:red;font-size:20px;" type="email" name ="Email" placeholder="Enter your email" required>
+          <input style="font-size:20px;" type="email" name ="Email" placeholder="Enter your email" required>
         </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
         <div style="color:white" class="input-box">
           <span class="details">Whatsapp Number</span>
-          <input style="color:red;font-size:20px;" type="phone" name ="Phone"  placeholder="Enter your email" required>
+          <input style="font-size:20px;" type="phone" name ="Phone"  placeholder="Enter your email" required>
         </div>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
         <div style="color:white" class="input-box">
           <span class="details">College name</span>
-          <input style="color:red;font-size:20px;" type="text" name ="College Name" placeholder="Enter your College Name" required>
+          <input style="font-size:20px;" type="text" name ="College Name" placeholder="Enter your College Name" required>
         </div>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
         <div style="color:white" class="input-box">
           <span class="details">Academic Year</span>
-          <input style="color:red;font-size:20px;" type="text" name ="Year" placeholder="Enter your Year" required>
+          <input style="font-size:20px;" type="text" name ="Year" placeholder="Enter your Year" required>
         </div>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
         <div  style="color:white" class="input-box">
           <span class="details">City</span>
-          <input style="color:red;font-size:20px;" type="text" name ="City" placeholder="Enter your City" required>
+          <input style="font-size:20px;" type="text" name ="City" placeholder="Enter your City" required>
         </div>
       </div>
 
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
         <div style="color:white" class="input-box">
           <span class="details">Course Name</span>
-          <input style="color:red;font-size:20px;" type="text" name ="Course Name" placeholder="Enter your Course Name" required>
+          <input style="font-size:20px;" type="text" name ="Course Name" placeholder="Enter your Course Name" required>
         </div>
     </div> 
 
 
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+       <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
         <div style="color:white" class="input-box">
           <span class="details">Password</span>
           <input style="color:red;font-size:20px;" type="password" name ="Password" placeholder="Enter your password" required>
@@ -185,21 +188,44 @@ echo $statusMsg;
             <span style="font: style 20px;" class="details">Confirm Password</span>
               <input style="color:red;font-size:20px;" type="password" name ="Confirm Password" placeholder="Confirm your password" required>
               <?php
-          if($checkcopy==1){
-          echo"<h4 >Password and confirmpassword are same</h4>";
+         // if($checkcopy==1){
+         // echo"<h4 >Password and confirmpassword are same</h4>";
           
-          }    
+         // }    
         ?>
       </div>
-    </div>
+    </div>-->
     
     
   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
     <div style="color:white" class="input-box">
-    <span style="font: style 20px;" class="details">Date Of Birth</span>
+    <span style="font-style:20px;" class="details">Date Of Birth</span>
     <input type="date" id="birthday" name="birthday">
     </div>
 </div> 
+
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+
+<div style="color:white" class="gender-details">
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          <input type="radio" name="gender" id="dot-3">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+        </div>
 
 
     </div>
